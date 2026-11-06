@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>罗大珉 (Damin Luo) — Clinician / Computational Biologist / Developer / Explorer</title>
+
+  <!-- SEO & Social Meta -->
+  <meta name="description" content="罗大珉 (Damin Luo) 个人主页 · 广东医科大学临床医学本科在读 · 计算生物学与分子动力学模拟 · 独立开发者 & Homelab 爱好者" />
+  <meta name="keywords" content="罗大珉, Damin Luo, 临床医学, 计算生物学, 分子动力学模拟, Amber24, AI Agent, Homelab" />
+  <meta property="og:title" content="罗大珉 (Damin Luo) — Portfolio & Research" />
+  <meta property="og:description" content="临床医学在读 · 计算生物学与分子动力学模拟 · 独立开发者" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://luodamin.com" />
+
+  <!-- Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- 4-IMAGE SEQUENTIAL AMBIENT BACKDROP (Cyan -> Crimson -> Violet -> Emerald) -->
+  <div class="stage-backdrop" aria-hidden="true">
+    <!-- Stage 1: Sakura (Intro & Mission) -->
+    <div class="stage-layer stage-layer-1 is-active"></div>
+    <!-- Stage 2: Katan (About) -->
+    <div class="stage-layer stage-layer-2"></div>
+    <!-- Stage 3: Suisen (Work & Research) -->
+    <div class="stage-layer stage-layer-3"></div>
+    <!-- Stage 4: Sophia (Role, Contact & Footer) -->
+    <div class="stage-layer stage-layer-4"></div>
+  </div>
+
+  <div class="stage-ambient-glow" aria-hidden="true"></div>
+  <div class="ambient-noise" aria-hidden="true"></div>
+
+  <!-- TOP PROGRESS BAR (Mobile) -->
+  <div id="top-progress" class="top-progress" aria-hidden="true"></div>
+
+  <!-- FIXED LEFT RAIL NAVIGATION (Desktop >= 901px) -->
+  <aside class="rail" aria-label="Desktop Rail Navigation">
+    <!-- Geometric Wireframe Logo -->
+    <a href="#intro" class="rail-logo" title="Back to Top">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="9" stroke-dasharray="3 3"/>
+        <path d="M12 3v18M3 12h18"/>
+      </svg>
+    </a>
+
+    <!-- Rail Navigation Track -->
+    <nav class="rail-nav">
+      <a href="#intro" data-track-link="intro" class="rail-item is-active">
+        <span class="rail-track"><span class="rail-progress"></span></span>
+        <span class="rail-text"><span class="rail-num">I.</span><span class="rail-label">INTRO</span></span>
+      </a>
+      <a href="#mission" data-track-link="mission" class="rail-item">
+        <span class="rail-track"><span class="rail-progress"></span></span>
+        <span class="rail-text"><span class="rail-num">II.</span><span class="rail-label">MISSION</span></span>
+      </a>
+      <a href="#about" data-track-link="about" class="rail-item">
+        <span class="rail-track"><span class="rail-progress"></span></span>
+        <span class="rail-text"><span class="rail-num">III.</span><span class="rail-label">ABOUT</span></span>
+      </a>
+      <a href="#work" data-track-link="work" class="rail-item">
+        <span class="rail-track"><span class="rail-progress"></span></span>
+        <span class="rail-text"><span class="rail-num">IV.</span><span class="rail-label">WORK</span></span>
+      </a>
+      <a href="#role" data-track-link="role" class="rail-item">
+        <span class="rail-track"><span class="rail-progress"></span></span>
+        <span class="rail-text"><span class="rail-num">V.</span><span class="rail-label">ROLE</span></span>
+      </a>
+      <a href="#contact" data-track-link="contact" class="rail-item">
+        <span class="rail-track"><span class="rail-progress"></span></span>
+        <span class="rail-text"><span class="rail-num">VI.</span><span class="rail-label">CONTACT</span></span>
+      </a>
+    </nav>
+
+    <!-- Synthetic Audio SFX Toggle Button -->
+    <button id="rail-sfx-btn" class="rail-sfx-btn" type="button" title="切换交互音效">
+      <div class="rail-sfx-bars">
+        <span></span><span></span><span></span>
+      </div>
+      <span>SFX</span>
+    </button>
+  </aside>
+
+  <!-- MOBILE TOP BAR (< 900px) -->
+  <header class="mobile-bar">
+    <a href="#intro" class="rail-logo">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="9"/>
+        <path d="M12 3v18"/>
+      </svg>
+    </a>
+    <button id="burger-btn" class="burger" type="button" aria-label="Open Navigation">
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- MOBILE SLIDE-OVER DRAWER MENU -->
+  <div id="menu-scrim" class="menu-scrim"></div>
+  <aside id="mobile-menu" class="mobile-menu">
+    <div class="mobile-menu-header">
+      <span class="mobile-menu-title">NAVIGATION · 罗大珉</span>
+      <button id="menu-close-btn" type="button" class="burger is-open" aria-label="Close Navigation">
+        <span></span><span></span>
+      </button>
+    </div>
+
+    <nav class="mobile-menu-nav">
+      <a href="#intro" data-drawer-link class="mobile-menu-link">
+        <small>I.</small><span>Intro</span>
+      </a>
+      <a href="#mission" data-drawer-link class="mobile-menu-link">
+        <small>II.</small><span>Mission</span>
+      </a>
+      <a href="#about" data-drawer-link class="mobile-menu-link">
+        <small>III.</small><span>About</span>
+      </a>
+      <a href="#work" data-drawer-link class="mobile-menu-link">
+        <small>IV.</small><span>Work</span>
+      </a>
+      <a href="#role" data-drawer-link class="mobile-menu-link">
+        <small>V.</small><span>Role</span>
+      </a>
+      <a href="#contact" data-drawer-link class="mobile-menu-link">
+        <small>VI.</small><span>Contact</span>
+      </a>
+    </nav>
+
+    <div class="mobile-menu-footer">
+      <button class="mobile-menu-email" type="button" data-copy-email data-email="agczsz@outlook.com">
+        <span>agczsz@outlook.com</span>
+        <span class="glass-badge">COPY</span>
+      </button>
+      <div style="display: flex; gap: 1.5rem; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem;">
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer">GITHUB ↗</a>
+        <a href="https://luodamin.com" target="_blank" rel="noopener noreferrer">LUODAMIN.COM ↗</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN SCROLL CONTENT -->
+  <main>
+
+    <!-- SECTION 1: HERO (Stage 1: Sakura Cyan) -->
+    <section id="intro" class="hero">
+      <div class="hero-top-meta">
+        <span>PORTFOLIO // 2026</span>
+        <span>GUANGDONG MEDICAL UNIVERSITY · B.MED</span>
+      </div>
+
+      <div class="hero-title-wrap">
+        <h1 class="hero-title" aria-label="CLINICIAN, COMPUTATIONAL, DEVELOPER, EXPLORER">
+          <span class="hero-mask"><span class="hero-line">CLINICIAN</span></span>
+          <span class="hero-mask"><span class="hero-line neon-text-s1">COMPUTATIONAL</span></span>
+          <span class="hero-mask"><span class="hero-line">DEVELOPER</span></span>
+          <span class="hero-mask"><span class="hero-line">EXPLORER</span></span>
+        </h1>
+      </div>
+
+      <div class="hero-bottom">
+        <p class="hero-desc">
+          临床医学在读 · 计算生物学与分子动力学模拟 · 独立开发者 & Homelab 爱好者。<br>
+          将医学洞察、分子力学与 AI Agent 工作流深度交汇。
+        </p>
+        <div class="scroll-hint">
+          <span>SCROLL TO EXPLORE</span>
+          <span class="scroll-hint-line"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: MISSION & INTRODUCE (Stage 1 -> Stage 2) -->
+    <section id="mission" class="section-pad layout">
+      <div class="intro-grid">
+        <div>
+          <span class="caption-label">02 // MISSION</span>
+          <p style="font-size: 1.15rem; color: var(--s1-cyan); font-weight: 600; line-height: 1.4;">
+            保持同样的好奇心<br>开启跨学科的崭新篇章
+          </p>
+        </div>
+        <div>
+          <h2 class="intro-lead-title scrub-words" data-scrub-text="以严谨的医学视角探索生命，以计算与代码重构微观世界。经过长期的跨界探索与不断反问，我意识到，真正的突破来自于勇于踏入未知。">
+            以严谨的医学视角探索生命，以计算与代码重构微观世界。经过长期的跨界探索与不断反问，我意识到，真正的突破来自于勇于踏入未知。
+          </h2>
+        </div>
+      </div>
+
+      <div class="intro-bottom-grid">
+        <!-- Showreel Interactive Media Preview Card -->
+        <div class="showreel-card" style="background-image: url('/picture/1-3840x2160px_C_sakura.png');">
+          <div class="showreel-overlay">
+            <div style="display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;">
+              <span>RESEARCH & DEV SHOWREEL</span>
+              <span>DAMIN LUO</span>
+            </div>
+            <div class="showreel-play-btn" title="查看研究演示">
+              ▶
+            </div>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">
+              MD AGENT PLATFORM · AUTOMATION PIPELINES
+            </div>
+          </div>
+        </div>
+
+        <div class="intro-para-group">
+          <p>
+            我的探索位于<strong>基础医学、量子力学/分子动力学模拟</strong>与<strong>现代智能体工程</strong>的交汇点：将微观复杂的生物大分子变构机理，转化为自动化、可计算的高精度分析模型。
+          </p>
+          <p>
+            我的使命是构建严谨深思的数字工具与科研自动化管线，让繁琐的计算流程变得精简直观，在微观物理与宏观诊疗之间架设坚实的桥梁。
+          </p>
+          <div>
+            <a href="#about" class="line-link" data-open-story>
+              <span>个人故事与追求</span>
+              <span class="line-link-arrow">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: ABOUT / EXPERIENCE (Stage 2: Katan Crimson & Passion) -->
+    <section id="about" class="section-pad layout about-section">
+      <span class="caption-label">03 // CORE PHILOSOPHY</span>
+
+      <!-- Olivi Dual-Layer Kinetic Scrub Text -->
+      <div class="dual-layer-container">
+        <div class="dual-layer-line">
+          <span class="dual-layer-base">BRIDGING</span>
+          <span class="dual-layer-overlay">BRIDGING</span>
+        </div>
+        <div class="dual-layer-line">
+          <span class="dual-layer-base">MEDICINE</span>
+          <span class="dual-layer-overlay">MEDICINE</span>
+        </div>
+        <div class="dual-layer-line">
+          <span class="dual-layer-base">COMPUTING</span>
+          <span class="dual-layer-overlay">COMPUTING</span>
+        </div>
+        <div class="dual-layer-line">
+          <span class="dual-layer-base">WITH</span>
+          <span class="dual-layer-overlay">WITH</span>
+        </div>
+        <div class="dual-layer-line">
+          <span class="dual-layer-base">PRECISION &</span>
+          <span class="dual-layer-overlay">PRECISION &</span>
+        </div>
+        <div class="dual-layer-line">
+          <span class="dual-layer-base">CODE</span>
+          <span class="dual-layer-overlay">CODE</span>
+        </div>
+      </div>
+
+      <!-- Academic Research & Capability Cards -->
+      <div class="about-cards-grid">
+        <div class="about-card">
+          <span class="caption-label">RESEARCH // 论文成果</span>
+          <h3 class="about-card-title">GajA 变构机制在投论文</h3>
+          <p class="about-card-desc">
+            Co-author: "Atomistic insights into ATP driven inhibition and asymmetric conformational transition of GajA homotetramer in the Gabija antiphage defense system"（在投 JMGM）。参与相关发明专利申请 1 项。
+          </p>
+        </div>
+
+        <div class="about-card">
+          <span class="caption-label">TOOLCHAIN // 生信与量子模拟</span>
+          <h3 class="about-card-title">Amber24 / Gaussian / VMD</h3>
+          <p class="about-card-desc">
+            深入掌握 cpptraj 轨迹解析、WHAM 自由能曲面重构、RMSD/RMSF 计算、残基互作网络中心度分析（Network Centrality）及高通量蛋白质结构预测。
+          </p>
+        </div>
+
+        <div class="about-card">
+          <span class="caption-label">EDUCATION // 学术背景</span>
+          <h3 class="about-card-title">广东医科大学 · 临床医学</h3>
+          <p class="about-card-desc">
+            2024 级临床医学本科在读，目标从事临床全科医学。深耕生化与分子生物学、病理生理学，具备大学英语六级（CET-6）水平，持续跨界现代系统工程。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: WORK & RESEARCH (Stage 3: Suisen Violet) -->
+    <section id="work" class="section-pad layout">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 3.5rem;">
+        <div>
+          <span class="caption-label">04 // SELECTED WORK</span>
+          <h2 style="font-size: clamp(2rem, 4vw, 3.6rem); font-weight: 700; letter-spacing: -0.03em;">精选项目与工程</h2>
+        </div>
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--s3-purple);">
+          06 ENTRIES · 2023–2026
+        </span>
+      </div>
+
+      <div class="work-grid">
+        <!-- Sticky Dynamic Visual Preview Card (Left) -->
+        <div class="work-visual-sticky" id="work-sticky-card">
+          <div class="work-visual-img" id="work-visual-img" style="background-image: url('/picture/1-3840x2160px_C_sakura.png');"></div>
+          <div class="work-visual-content">
+            <span class="glass-badge" id="work-visual-tag">AI Agent · Molecular Dynamics</span>
+            <div>
+              <div style="font-family: 'JetBrains Mono', monospace; font-size: 4rem; font-weight: 900; line-height: 0.9;" id="work-visual-year">
+                2026
+              </div>
+              <h3 style="font-size: 1.6rem; font-weight: 700; margin-top: 0.8rem;" id="work-visual-title">
+                生息演算 (MD Agent Platform)
+              </h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scrollable Project List (Right) -->
+        <div class="work-list">
+          <div class="work-item is-active">
+            <h3 class="work-item-title">生息演算 (MD Agent Platform)</h3>
+            <div class="work-item-meta">
+              <span>01</span>
+              <span>AI Agent · Molecular Dynamics · Python</span>
+              <span>2025–2026</span>
+            </div>
+          </div>
+
+          <div class="work-item">
+            <h3 class="work-item-title">自动化流媒体与追番管线</h3>
+            <div class="work-item-meta">
+              <span>02</span>
+              <span>Bangumi API · Notion API · Cloudflare AI</span>
+              <span>2024–2025</span>
+            </div>
+          </div>
+
+          <div class="work-item">
+            <h3 class="work-item-title">蛋白质变异分析与可视化管线</h3>
+            <div class="work-item-meta">
+              <span>03</span>
+              <span>Computational Biology · R · DataViz</span>
+              <span>2024</span>
+            </div>
+          </div>
+
+          <div class="work-item">
+            <h3 class="work-item-title">Gabija GajA 四聚体变构动力学研究</h3>
+            <div class="work-item-meta">
+              <span>04</span>
+              <span>Academic Paper · JMGM (Under Review)</span>
+              <span>2024–2025</span>
+            </div>
+          </div>
+
+          <div class="work-item">
+            <h3 class="work-item-title">Homelab & 私有云基础设施</h3>
+            <div class="work-item-meta">
+              <span>05</span>
+              <span>Proxmox VE · Docker · RustDesk · Cloudflare</span>
+              <span>2023–2026</span>
+            </div>
+          </div>
+
+          <div class="work-item">
+            <h3 class="work-item-title">Hi-Fi 音频工程与数字信号链</h3>
+            <div class="work-item-meta">
+              <span>06</span>
+              <span>Shanling UA2 · PEQ/AutoEq · HQPlayer</span>
+              <span>Continuous</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: ROLE & STACK (Stage 4: Sophia Emerald & Sky Blue) -->
+    <section id="role" class="section-pad layout">
+      <h2 class="role-hero-title neon-text-s4">EXPLORER</h2>
+
+      <div class="role-content-wrap">
+        <div>
+          <span class="caption-label">05 // IDENTITY & ROLES</span>
+          <p style="font-size: 1.4rem; color: var(--s4-emerald); font-weight: 700; margin-bottom: 1rem;">
+            你可以称我为：
+          </p>
+          <div style="font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 800; line-height: 1.3;">
+            临床全科医学生<br>
+            计算生物探索者<br>
+            独立系统开发者
+          </div>
+        </div>
+
+        <div>
+          <blockquote class="role-quote">
+            “卓越的科学与软件，不仅建立在严密的逻辑与优雅的代码之上，更源于同理心、好奇心，以及突破惯常探索未知的勇气。”
+          </blockquote>
+
+          <div style="margin-top: 3rem;">
+            <span class="caption-label">TECH STACK // 核心技术栈</span>
+            <div class="tech-badges-grid">
+              <span class="glass-badge">Python</span>
+              <span class="glass-badge">R (ggplot2)</span>
+              <span class="glass-badge">Amber24</span>
+              <span class="glass-badge">cpptraj</span>
+              <span class="glass-badge">Gaussian</span>
+              <span class="glass-badge">PyMOL / VMD</span>
+              <span class="glass-badge">Claude Code</span>
+              <span class="glass-badge">MCP</span>
+              <span class="glass-badge">Proxmox VE</span>
+              <span class="glass-badge">Docker / LXC</span>
+              <span class="glass-badge">Debian / Rocky</span>
+              <span class="glass-badge">RustDesk</span>
+              <span class="glass-badge">Cloudflare</span>
+            </div>
+          </div>
+
+          <div style="margin-top: 2rem;">
+            <span class="caption-label">INTERESTS // 数字生活与审美</span>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+              Hi-Fi 音频工程（位完美信号链 / PEQ 调校）· 深度视觉小说玩家（《白色相簿 2》全路线鉴赏）· 奇幻与日常系轻小说鉴赏。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: CONTACT & GET IN TOUCH (Stage 4) -->
+    <section id="contact" class="section-pad layout">
+      <span class="caption-label">06 // GET IN TOUCH</span>
+      <h2 class="contact-big-title">LET'S CONNECT</h2>
+
+      <div class="contact-cols-grid">
+        <div class="contact-col">
+          <span class="caption-label">EMAIL ME</span>
+          <button type="button" class="contact-col-link" data-copy-email data-email="agczsz@outlook.com" style="text-align: left;">
+            agczsz@outlook.com
+          </button>
+          <button type="button" class="glass-badge" style="width: fit-content;" data-copy-email data-email="mail@266666.best">
+            备用: mail@266666.best (点击复制)
+          </button>
+        </div>
+
+        <div class="contact-col">
+          <span class="caption-label">CODE & SITE</span>
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="contact-col-link">
+            GitHub ↗
+          </a>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--text-dim);">
+            Main: luodamin.com
+          </span>
+        </div>
+
+        <div class="contact-col">
+          <span class="caption-label">LOCATION & TIMEZONE</span>
+          <p class="contact-col-link" style="cursor: default;">
+            Guangdong, CN
+          </p>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--text-dim);">
+            UTC+08:00 (China Standard Time)
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer layout">
+      <div class="footer-top">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--text-muted);">
+          ROBOTICS · COMPUTATION · MEDICINE
+        </span>
+        <div style="display: flex; gap: 2rem;">
+          <a href="https://luodamin.com" class="line-link">
+            <span>luodamin.com</span>
+            <span class="line-link-arrow">↗</span>
+          </a>
+          <a href="mailto:agczsz@outlook.com" class="line-link">
+            <span>Email</span>
+            <span class="line-link-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-mark" aria-hidden="true">
+        DAMIN LUO
+      </div>
+
+      <div class="footer-bot">
+        <span>© 2026 DAMIN LUO (罗大珉). ALL RIGHTS RESERVED.</span>
+        <a href="#intro" class="line-link" style="font-size: 0.8rem;">
+          <span>BACK TO TOP ↑</span>
+        </a>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- MODAL / DETAIL DRAWER -->
+  <div id="modal-backdrop" class="modal-backdrop"></div>
+  <div id="modal-dialog" class="modal-dialog" role="dialog" aria-modal="true">
+    <button id="modal-close-btn" class="modal-close-btn" type="button" aria-label="Close dialog">×</button>
+    <div class="modal-header">
+      <span class="modal-tag" id="modal-tag">PROJECT / RESEARCH</span>
+      <h3 class="modal-title" id="modal-title">标题加载中...</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+      内容加载中...
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast-notice" class="toast-notice" role="alert">已复制到剪贴板</div>
+
+  <!-- Vite Modular Application Entrypoint -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

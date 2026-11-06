@@ -1,0 +1,158 @@
+/* ==========================================================================
+   BASE STYLES & BACKGROUND STAGE ENGINE
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-deep);
+  color: var(--text-main);
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Inter Tight', 'Inter', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+  background-color: var(--bg-deep);
+  color: var(--text-main);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: clip;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--active-accent);
+  color: #000;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  transition: background 0.3s;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--active-accent);
+}
+
+/* ==========================================================================
+   4-IMAGE SEQUENTIAL AMBIENT BACKDROP
+   ========================================================================== */
+.stage-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  overflow: hidden;
+  background-color: var(--bg-deep);
+}
+
+.stage-layer {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  filter: saturate(1.15) contrast(1.08) brightness(0.65);
+  transform: scale(1.05);
+  transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), transform 1.6s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: opacity, transform;
+}
+
+.stage-layer.is-active {
+  opacity: 0.38;
+  transform: scale(1);
+}
+
+/* Individual Stage Images via Relative Paths */
+.stage-layer-1 {
+  background-image: radial-gradient(circle at 70% 30%, transparent 20%, rgba(6, 8, 13, 0.88) 85%),
+                    url('/picture/1-3840x2160px_C_sakura.png');
+}
+
+.stage-layer-2 {
+  background-image: radial-gradient(circle at 60% 40%, transparent 20%, rgba(6, 8, 13, 0.88) 85%),
+                    url('/picture/2-3840x2160px_C_katan.png');
+}
+
+.stage-layer-3 {
+  background-image: radial-gradient(circle at 50% 35%, transparent 20%, rgba(6, 8, 13, 0.88) 85%),
+                    url('/picture/3-3840x2160px_C_suisen.png');
+}
+
+.stage-layer-4 {
+  background-image: radial-gradient(circle at 65% 35%, transparent 20%, rgba(6, 8, 13, 0.88) 85%),
+                    url('/picture/4-3840x2160px_C_sophia.png');
+}
+
+/* Ambient Color Bloom Overlay */
+.stage-ambient-glow {
+  position: fixed;
+  inset: -20%;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(45% 45% at 75% 25%, var(--active-glow) 0%, transparent 70%),
+              radial-gradient(40% 40% at 20% 75%, rgba(0, 0, 0, 0.8) 0%, transparent 70%);
+  filter: blur(80px);
+  opacity: 0.75;
+  transition: background 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: background;
+}
+
+/* Noise & Scanline Subtle Texture */
+.ambient-noise {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
+  background-size: 32px 32px;
+  opacity: 0.6;
+}
+
+/* Main Container Layout */
+main, footer {
+  padding-left: var(--rail);
+  transition: padding-left 0.3s ease;
+}
+
+.layout {
+  padding-left: calc(var(--rail) + var(--margin));
+  padding-right: var(--margin);
+}
+
+@media (max-width: 900px) {
+  .layout {
+    padding-left: var(--margin);
+    padding-right: var(--margin);
+  }
+}

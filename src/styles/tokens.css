@@ -1,0 +1,59 @@
+/* ==========================================================================
+   DESIGN TOKENS - 4-STAGE ANIME PALETTE & OLIVI TYPOGRAPHY
+   ========================================================================== */
+
+:root {
+  /* Common Dark Base */
+  --bg-deep: #06080d;
+  --bg-card: rgba(14, 18, 28, 0.7);
+  --bg-card-hover: rgba(22, 28, 44, 0.85);
+  --line: rgba(255, 255, 255, 0.1);
+  --line-strong: rgba(255, 255, 255, 0.2);
+  --text-main: #f5f7fa;
+  --text-muted: #8e9bb0;
+  --text-dim: #546074;
+  --rail: 7.2rem;
+  --margin: clamp(1.2rem, 3vw, 3rem);
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+
+  /* STAGE 1: Sakura Cyan / Electric Teal (Intro & Mission) */
+  --s1-cyan: #00f0ff;
+  --s1-teal: #4deeea;
+  --s1-blue: #0077ff;
+  --s1-navy: #091322;
+  --s1-glow: rgba(0, 240, 255, 0.35);
+
+  /* STAGE 2: Katan Crimson / Fire Orange / Gold (About & Craft) */
+  --s2-crimson: #ff2a6d;
+  --s2-orange: #ff6e27;
+  --s2-gold: #ffc837;
+  --s2-dark: #1f0710;
+  --s2-glow: rgba(255, 42, 109, 0.35);
+
+  /* STAGE 3: Suisen Violet / Cyber Purple / Amber Eyes (Work & Research) */
+  --s3-purple: #b055ff;
+  --s3-violet: #7928ca;
+  --s3-amber: #ffb703;
+  --s3-obsidian: #10081d;
+  --s3-glow: rgba(176, 85, 255, 0.35);
+
+  /* STAGE 4: Sophia Emerald / Sky Blue / Rose Gold (Role & Contact) */
+  --s4-emerald: #05f1af;
+  --s4-sky: #38bdf8;
+  --s4-gold: #fbbf24;
+  --s4-dark: #081a17;
+  --s4-glow: rgba(5, 241, 175, 0.35);
+
+  /* Active Dynamic Variables (Controlled by Scroll Engine) */
+  --active-accent: var(--s1-cyan);
+  --active-accent-2: var(--s1-blue);
+  --active-glow: var(--s1-glow);
+  --active-stage-bg: var(--s1-navy);
+}
+
+@media (max-width: 900px) {
+  :root {
+    --rail: 0rem;
+  }
+}

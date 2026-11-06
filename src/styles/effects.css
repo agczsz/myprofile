@@ -1,0 +1,176 @@
+/* ==========================================================================
+   EFFECTS: NEON GRADIENT TEXT, GLASSMORPHISM & SCROLL REVEALS
+   ========================================================================== */
+
+/* Dynamic Anime Neon Gradient Text */
+.text-gradient-dynamic {
+  background: linear-gradient(135deg, var(--active-accent) 0%, var(--active-accent-2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 28px var(--active-glow));
+  transition: filter 0.8s ease;
+}
+
+/* Stage-specific Neon Text Gradients (Matching the 4 pictures) */
+.neon-text-s1 {
+  background: linear-gradient(135deg, #ffffff 0%, var(--s1-cyan) 45%, var(--s1-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 24px rgba(0, 240, 255, 0.45));
+}
+
+.neon-text-s2 {
+  background: linear-gradient(135deg, #ffffff 0%, var(--s2-gold) 30%, var(--s2-orange) 70%, var(--s2-crimson) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 24px rgba(255, 42, 109, 0.45));
+}
+
+.neon-text-s3 {
+  background: linear-gradient(135deg, #ffffff 0%, var(--s3-purple) 45%, var(--s3-violet) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 24px rgba(176, 85, 255, 0.45));
+}
+
+.neon-text-s4 {
+  background: linear-gradient(135deg, #ffffff 0%, var(--s4-emerald) 40%, var(--s4-sky) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 24px rgba(5, 241, 175, 0.45));
+}
+
+/* Kinetic Word Scrub (Word by Word reveal on scroll, matching olivi.top) */
+.scrub-words {
+  line-height: 1.25;
+}
+.scrub-word {
+  display: inline-block;
+  opacity: 0.18;
+  transform: translateY(2px);
+  transition: opacity 0.35s ease, transform 0.35s ease, color 0.35s ease;
+  will-change: opacity, transform;
+}
+.scrub-word.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+  color: var(--text-main);
+}
+.scrub-word.is-highlight {
+  color: var(--active-accent);
+  text-shadow: 0 0 20px var(--active-glow);
+}
+
+/* Dual-Layer Text Reveal (Olivi About section style) */
+.dual-layer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  user-select: none;
+}
+.dual-layer-line {
+  position: relative;
+  overflow: hidden;
+  line-height: 0.88;
+}
+.dual-layer-base {
+  color: #1a1e28;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  font-size: min(13vw, 12rem);
+  white-space: nowrap;
+  transition: color 0.4s;
+}
+.dual-layer-overlay {
+  position: absolute;
+  inset: 0;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  font-size: min(13vw, 12rem);
+  white-space: nowrap;
+  background: linear-gradient(135deg, var(--s2-gold) 0%, var(--s2-orange) 50%, var(--s2-crimson) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  clip-path: inset(0 100% 0 0);
+  will-change: clip-path;
+  transition: clip-path 0.15s ease-out;
+  filter: drop-shadow(0 0 25px rgba(255, 110, 39, 0.4));
+}
+
+/* Glassmorphism Cards & Badges */
+.glass-panel {
+  background: rgba(14, 20, 32, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  transition: all 0.4s var(--ease-expo);
+}
+.glass-panel:hover {
+  border-color: var(--active-accent);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 30px var(--active-glow);
+}
+
+.glass-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--line);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+}
+.glass-badge:hover {
+  border-color: var(--active-accent);
+  color: var(--active-accent);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Olivi-style Line Hover Link */
+.line-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-bottom: 0.35rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1px no-repeat;
+  transition: background-size 0.5s var(--ease-expo), color 0.3s ease;
+}
+.line-link-arrow {
+  display: inline-block;
+  transition: transform 0.4s var(--ease-expo);
+}
+@media (hover: hover) {
+  .line-link:hover {
+    background-size: 0% 1px;
+    background-position: 100% 100%;
+    color: var(--active-accent);
+  }
+  .line-link:hover .line-link-arrow {
+    transform: translate(3px, -3px) rotate(45deg);
+  }
+}
+
+/* Image Reveal Mask */
+.clip-reveal {
+  clip-path: inset(12% 8% round 16px);
+  transition: clip-path 1.2s var(--ease-expo);
+}
+.clip-reveal.is-inview {
+  clip-path: inset(0% 0% round 16px);
+}

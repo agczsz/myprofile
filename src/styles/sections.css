@@ -1,0 +1,487 @@
+/* ==========================================================================
+   SECTIONS: HERO, MISSION, ABOUT, WORK, ROLE, CONTACT & FOOTER
+   ========================================================================== */
+
+/* Section Margins & Layout Helpers */
+.section-pad {
+  padding-top: clamp(6rem, 12vw, 11rem);
+  padding-bottom: clamp(6rem, 12vw, 11rem);
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+
+.caption-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--active-accent);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+/* ==========================================================================
+   SECTION 1: HERO (Stage 1: Sakura Cyan)
+   ========================================================================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(2rem, 5vw, 4rem) var(--margin);
+  overflow: hidden;
+}
+
+.hero-top-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.hero-title-wrap {
+  margin: auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  user-select: none;
+}
+
+.hero-title {
+  font-size: clamp(3.2rem, 11.5vw, 13rem);
+  font-weight: 900;
+  line-height: 0.88;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-mask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.05em;
+}
+
+.hero-line {
+  display: block;
+  transform: translateY(0);
+  transition: transform 0.8s var(--ease-expo), color 0.5s ease;
+}
+
+.hero-line:hover {
+  color: var(--s1-cyan);
+  text-shadow: 0 0 35px var(--s1-glow);
+  transform: translateX(18px);
+}
+
+.hero-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.hero-desc {
+  max-width: 32rem;
+  font-size: clamp(1rem, 1.3vw, 1.25rem);
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.scroll-hint {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.scroll-hint-line {
+  position: relative;
+  width: 48px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+
+.scroll-hint-line::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--s1-cyan);
+  animation: scrollHintAnim 2s infinite var(--ease-smooth);
+}
+
+@keyframes scrollHintAnim {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ==========================================================================
+   SECTION 2: MISSION & INTRODUCE (Stage 1 -> Stage 2)
+   ========================================================================== */
+.intro-grid {
+  display: grid;
+  grid-template-columns: minmax(12rem, 1fr) 2.5fr;
+  gap: clamp(2rem, 5vw, 6rem);
+}
+
+.intro-lead-title {
+  font-size: clamp(2rem, 4.5vw, 4.8rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  color: var(--text-main);
+}
+
+.intro-bottom-grid {
+  margin-top: clamp(4rem, 8vw, 7rem);
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.showreel-card {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background-size: cover;
+  background-position: center;
+  transition: all 0.5s var(--ease-expo);
+}
+
+.showreel-card:hover {
+  border-color: var(--s1-cyan);
+  box-shadow: 0 0 40px var(--s1-glow);
+  transform: scale(1.02);
+}
+
+.showreel-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(6, 8, 13, 0.2) 0%, rgba(6, 8, 13, 0.85) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+}
+
+.showreel-play-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--s1-cyan);
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 25px var(--s1-glow);
+}
+.showreel-card:hover .showreel-play-btn {
+  transform: scale(1.15);
+}
+
+.intro-para-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   SECTION 3: ABOUT / EXPERIENCE (Stage 2: Katan Crimson & Craft)
+   ========================================================================== */
+.about-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-cards-grid {
+  margin-top: clamp(4rem, 8vw, 6rem);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.about-card {
+  padding: 2.2rem;
+  background: rgba(22, 10, 20, 0.6);
+  border: 1px solid rgba(255, 42, 109, 0.2);
+  border-radius: 12px;
+  transition: all 0.4s var(--ease-expo);
+}
+.about-card:hover {
+  border-color: var(--s2-crimson);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 30px var(--s2-glow);
+  transform: translateY(-6px);
+}
+.about-card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--s2-orange);
+  margin-bottom: 1rem;
+}
+.about-card-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+/* ==========================================================================
+   SECTION 4: WORK / SELECTED RESEARCH & CODE (Stage 3: Suisen Violet)
+   ========================================================================== */
+.work-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.8fr;
+  gap: clamp(2rem, 5vw, 6rem);
+  align-items: start;
+}
+
+.work-visual-sticky {
+  position: sticky;
+  top: 15vh;
+  height: 28rem;
+  border-radius: 16px;
+  border: 1px solid rgba(176, 85, 255, 0.25);
+  background: rgba(16, 8, 29, 0.7);
+  backdrop-filter: blur(20px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+  transition: all 0.5s var(--ease-expo);
+}
+
+.work-visual-img {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.45;
+  filter: saturate(1.2) contrast(1.1);
+  transition: all 0.6s var(--ease-expo);
+}
+
+.work-visual-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.work-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.work-item {
+  padding: 1.8rem 0;
+  border-top: 1px solid var(--line);
+  cursor: pointer;
+  transition: all 0.35s var(--ease-expo);
+}
+.work-item:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.work-item:hover,
+.work-item.is-active {
+  padding-left: 1.5rem;
+  border-color: var(--s3-purple);
+}
+
+.work-item-title {
+  font-size: clamp(1.8rem, 3.8vw, 3.8rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+}
+.work-item:hover .work-item-title,
+.work-item.is-active .work-item-title {
+  color: #fff;
+  text-shadow: 0 0 25px var(--s3-glow);
+}
+
+.work-item-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 0.8rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  transition: color 0.3s;
+}
+.work-item:hover .work-item-meta,
+.work-item.is-active .work-item-meta {
+  color: var(--s3-purple);
+}
+
+/* ==========================================================================
+   SECTION 5: ROLE & PHILOSOPHY (Stage 4: Sophia Emerald & Gold)
+   ========================================================================== */
+.role-hero-title {
+  font-size: min(18vw, 15rem);
+  font-weight: 900;
+  line-height: 0.88;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.12);
+  text-align: center;
+  user-select: none;
+}
+
+.role-content-wrap {
+  margin-top: clamp(3rem, 6vw, 6rem);
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.role-quote {
+  font-size: clamp(1.8rem, 3.5vw, 3.6rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  color: var(--text-main);
+}
+
+/* Tech Stack Badges Container */
+.tech-badges-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.5rem;
+}
+
+/* ==========================================================================
+   SECTION 6: CONTACT & FOOTER (Stage 4)
+   ========================================================================== */
+.contact-big-title {
+  font-size: min(13vw, 12rem);
+  font-weight: 900;
+  line-height: 0.88;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  color: var(--s4-emerald);
+  text-shadow: 0 0 40px var(--s4-glow);
+}
+
+.contact-cols-grid {
+  margin-top: clamp(3rem, 7vw, 6rem);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line);
+}
+
+.contact-col {
+  padding: 2rem 2rem 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.contact-col + .contact-col {
+  padding-left: 2rem;
+  border-left: 1px solid var(--line);
+}
+
+.contact-col-link {
+  font-size: clamp(1.2rem, 2.2vw, 2.2rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  word-break: break-all;
+  color: var(--text-main);
+  transition: color 0.3s;
+}
+.contact-col-link:hover {
+  color: var(--s4-emerald);
+}
+
+.footer {
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  border-top: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-mark {
+  margin: 3rem 0 1.5rem;
+  font-size: 21vw;
+  font-weight: 900;
+  line-height: 0.78;
+  letter-spacing: -0.04em;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.06);
+  user-select: none;
+  pointer-events: none;
+}
+
+.footer-bot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .hero-title {
+    font-size: clamp(2.8rem, 14vw, 5.5rem);
+  }
+  .intro-grid,
+  .intro-bottom-grid,
+  .work-grid,
+  .role-content-wrap {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .work-visual-sticky {
+    display: none;
+  }
+  .contact-cols-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-col,
+  .contact-col + .contact-col {
+    padding: 1.5rem 0;
+    border-left: none;
+    border-bottom: 1px solid var(--line);
+  }
+}
