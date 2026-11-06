@@ -54,9 +54,9 @@
 }
 
 .hero-title {
-  font-size: clamp(3.2rem, 11.5vw, 13rem);
+  font-size: clamp(2.4rem, 7.5vw, 8.5rem);
   font-weight: 900;
-  line-height: 0.88;
+  line-height: 0.92;
   letter-spacing: -0.05em;
   text-transform: uppercase;
   color: #fff;
@@ -134,15 +134,15 @@
    ========================================================================== */
 .intro-grid {
   display: grid;
-  grid-template-columns: minmax(12rem, 1fr) 2.5fr;
+  grid-template-columns: 2.5fr minmax(12rem, 1fr); /* headline left, tagline right */
   gap: clamp(2rem, 5vw, 6rem);
 }
 
 .intro-lead-title {
   font-size: clamp(2rem, 4.5vw, 4.8rem);
-  font-weight: 600;
-  line-height: 1.15;
-  letter-spacing: -0.035em;
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
   color: var(--text-main);
 }
 
@@ -293,6 +293,7 @@
 }
 
 .work-list {
+  grid-column: 2; /* keep the list in the right column now that the preview card is gone */
   display: flex;
   flex-direction: column;
 }
@@ -351,16 +352,17 @@
   letter-spacing: -0.05em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.12);
-  text-align: center;
+  text-align: left; /* keep the ghost title on the dark left side, clear of the Sophia artwork */
   user-select: none;
 }
 
 .role-content-wrap {
   margin-top: clamp(3rem, 6vw, 6rem);
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: clamp(2rem, 5vw, 5rem);
-  align-items: center;
+  grid-template-columns: 1fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: start;
+  max-width: 58%; /* all role content stays left of the artwork's face */
 }
 
 .role-quote {
@@ -383,7 +385,7 @@
    SECTION 6: CONTACT & FOOTER (Stage 4)
    ========================================================================== */
 .contact-big-title {
-  font-size: min(13vw, 12rem);
+  font-size: min(10vw, 8.5rem);
   font-weight: 900;
   line-height: 0.88;
   letter-spacing: -0.05em;
@@ -397,6 +399,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   border-top: 1px solid var(--line);
+  max-width: 62%; /* keep contact columns clear of the Sophia artwork on the right */
 }
 
 .contact-col {
@@ -472,8 +475,13 @@
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
-  .work-visual-sticky {
-    display: none;
+  .role-content-wrap,
+  .contact-cols-grid,
+  .work-list {
+    max-width: 100%;
+  }
+  .work-list {
+    grid-column: auto;
   }
   .contact-cols-grid {
     grid-template-columns: 1fr;

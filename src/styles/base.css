@@ -22,7 +22,9 @@ html {
 body {
   font-family: 'Inter Tight', 'Inter', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Segoe UI', Roboto, sans-serif;
   line-height: 1.5;
-  background-color: var(--bg-deep);
+  /* NOTE: no background-color here — body's background paints ABOVE the
+     negative z-index .stage-backdrop and would hide the artwork entirely.
+     The page base color lives on <html> (propagates to canvas). */
   color: var(--text-main);
   min-height: 100vh;
   position: relative;
@@ -82,36 +84,53 @@ button {
   background-position: center 30%;
   background-repeat: no-repeat;
   opacity: 0;
-  filter: saturate(1.15) contrast(1.08) brightness(0.65);
+  filter: saturate(1.2) contrast(1.05) brightness(1.05);
   transform: scale(1.05);
   transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), transform 1.6s cubic-bezier(0.25, 1, 0.5, 1);
   will-change: opacity, transform;
 }
 
 .stage-layer.is-active {
-  opacity: 0.38;
+  opacity: 0.72;
   transform: scale(1);
 }
 
-/* Individual Stage Images via Relative Paths */
+/* Individual Stage Images via Relative Paths.
+   Wide (>16:9) viewports crop vertically under `cover`, so horizontal
+   placement is fixed — stage-layer-4 zooms slightly (auto 135%) and anchors
+   left to push the Sophia artwork's face toward the right edge, away from
+   the Role/Contact text columns. All layers get a bottom scrim so footer
+   and card text stay readable over bright artwork. */
 .stage-layer-1 {
-  background-image: radial-gradient(circle at 70% 30%, transparent 20%, rgba(6, 8, 13, 0.88) 85%),
+  background-image: linear-gradient(180deg, transparent 55%, rgba(6, 8, 13, 0.6) 100%),
+                    radial-gradient(circle at 70% 30%, transparent 40%, rgba(6, 8, 13, 0.45) 92%),
                     url('/picture/1-3840x2160px_C_sakura.png');
+  /* zoom slightly and anchor left so the Sakura face shifts toward the
+     right edge, clear of the hero headline */
+  background-size: auto 145%;
+  background-position: 0% 32%;
 }
 
 .stage-layer-2 {
-  background-image: radial-gradient(circle at 60% 40%, transparent 20%, rgba(6, 8, 13, 0.88) 85%),
+  background-image: linear-gradient(180deg, transparent 55%, rgba(6, 8, 13, 0.6) 100%),
+                    radial-gradient(circle at 60% 40%, transparent 40%, rgba(6, 8, 13, 0.45) 92%),
                     url('/picture/2-3840x2160px_C_katan.png');
 }
 
 .stage-layer-3 {
-  background-image: radial-gradient(circle at 50% 35%, transparent 20%, rgba(6, 8, 13, 0.88) 85%),
+  background-image: linear-gradient(180deg, transparent 55%, rgba(6, 8, 13, 0.6) 100%),
+                    radial-gradient(circle at 50% 35%, transparent 40%, rgba(6, 8, 13, 0.45) 92%),
                     url('/picture/3-3840x2160px_C_suisen.png');
 }
 
 .stage-layer-4 {
-  background-image: radial-gradient(circle at 65% 35%, transparent 20%, rgba(6, 8, 13, 0.88) 85%),
+  /* heavy left scrim: all Role/Contact/Footer text lives on the dark left
+     side while the Sophia artwork stays visible on the right */
+  background-image: linear-gradient(90deg, rgba(6, 8, 13, 0.92) 0%, rgba(6, 8, 13, 0.55) 42%, rgba(6, 8, 13, 0.08) 72%),
+                    linear-gradient(180deg, transparent 45%, rgba(6, 8, 13, 0.7) 100%),
                     url('/picture/4-3840x2160px_C_sophia.png');
+  background-size: auto 135%;
+  background-position: 0% 30%;
 }
 
 /* Ambient Color Bloom Overlay */
@@ -121,9 +140,9 @@ button {
   z-index: -1;
   pointer-events: none;
   background: radial-gradient(45% 45% at 75% 25%, var(--active-glow) 0%, transparent 70%),
-              radial-gradient(40% 40% at 20% 75%, rgba(0, 0, 0, 0.8) 0%, transparent 70%);
+              radial-gradient(40% 40% at 20% 75%, rgba(0, 0, 0, 0.45) 0%, transparent 70%);
   filter: blur(80px);
-  opacity: 0.75;
+  opacity: 0.55;
   transition: background 1.2s cubic-bezier(0.25, 1, 0.5, 1);
   will-change: background;
 }

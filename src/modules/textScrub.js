@@ -9,11 +9,23 @@ export function initTextScrub() {
     const rawText = container.getAttribute('data-scrub-text') || container.textContent.trim();
     container.innerHTML = '';
 
-    // Segment into words/phrases for Chinese & English
-    const segments = rawText.split(/(，|。|、|\s+)/);
+    // Segment into words/phrases for Chinese & English.
+    // Punctuation is merged into the preceding phrase span so a line
+    // never starts with ，。、 (Olivi-style natural CJK wrapping).
+    const segments = rawText.split(/(，|。|、|；|：|！|？|\s+)/);
 
     segments.forEach(seg => {
       if (!seg) return;
+      if (/^\s+$/.test(seg)) {
+        container.appendChild(document.createTextNode(' '));
+        return;
+      }
+      const isPunct = /^[，。、；：！？]/.test(seg);
+      const prev = container.lastElementChild;
+      if (isPunct && prev && prev.classList.contains('scrub-word')) {
+        prev.textContent += seg;
+        return;
+      }
       const span = document.createElement('span');
       span.className = 'scrub-word';
       span.textContent = seg;

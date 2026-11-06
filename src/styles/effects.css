@@ -48,7 +48,7 @@
 
 /* Kinetic Word Scrub (Word by Word reveal on scroll, matching olivi.top) */
 .scrub-words {
-  line-height: 1.25;
+  line-height: 1.12;
 }
 .scrub-word {
   display: inline-block;

@@ -5,7 +5,7 @@
 export const PROJECTS_DATA = [
   {
     id: '01',
-    title: '生息演算 (MD Agent Platform)',
+    title: 'MD Agent Platform',
     category: 'AI Agent · Molecular Dynamics · Python',
     year: '2025–2026',
     previewBg: 'radial-gradient(120% 90% at 20% 15%, #00f0ff 0%, #0077ff 45%, #091322 100%)',
@@ -24,7 +24,7 @@ export const PROJECTS_DATA = [
   },
   {
     id: '02',
-    title: '自动化流媒体与追番管线',
+    title: 'Media Automation Pipeline',
     category: 'Media Pipeline · Notion API · Cloudflare AI',
     year: '2024–2025',
     previewBg: 'radial-gradient(120% 90% at 20% 15%, #ff2a6d 0%, #ff6e27 45%, #1f0710 100%)',
@@ -43,7 +43,7 @@ export const PROJECTS_DATA = [
   },
   {
     id: '03',
-    title: '蛋白质变异分析与可视化管线',
+    title: 'Protein Variant Analysis',
     category: 'Computational Biology · R · DataViz',
     year: '2024',
     previewBg: 'radial-gradient(120% 90% at 20% 15%, #b055ff 0%, #7928ca 45%, #10081d 100%)',
@@ -60,7 +60,7 @@ export const PROJECTS_DATA = [
   },
   {
     id: '04',
-    title: 'Gabija GajA 四聚体变构动力学研究',
+    title: 'GajA Allosteric Dynamics',
     category: 'Academic Paper · JMGM (Under Review) · Amber24',
     year: '2024–2025',
     previewBg: 'radial-gradient(120% 90% at 20% 15%, #ffc837 0%, #ff6e27 45%, #091322 100%)',
@@ -78,7 +78,7 @@ export const PROJECTS_DATA = [
   },
   {
     id: '05',
-    title: 'Homelab & 私有云基础设施',
+    title: 'Homelab & Private Cloud',
     category: 'Virtualization · Linux · Proxmox VE · Docker',
     year: '2023–2026',
     previewBg: 'radial-gradient(120% 90% at 20% 15%, #05f1af 0%, #38bdf8 45%, #081a17 100%)',
@@ -95,7 +95,7 @@ export const PROJECTS_DATA = [
   },
   {
     id: '06',
-    title: 'Hi-Fi 音频工程与数字信号链',
+    title: 'Hi-Fi Audio Engineering',
     category: 'Digital Acoustics · DAC · AutoEq / PEQ',
     year: 'Continuous',
     previewBg: 'radial-gradient(120% 90% at 20% 15%, #38bdf8 0%, #b055ff 45%, #10081d 100%)',

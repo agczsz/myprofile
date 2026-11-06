@@ -64,17 +64,19 @@ export function initScrollEngine() {
       topProgress.style.transform = `scaleX(${scrollRatio})`;
     }
 
-    // 2. Determine active stage (0..3) across the page flow
-    // 0: Intro & Mission, 1: About, 2: Work, 3: Role & Contact
+    // 2. Determine active stage (0..3) from section anchors.
+    //    One artwork per section so the background never switches
+    //    in the middle of a section: the stage only flips when the
+    //    next section's top crosses the viewport midline.
+    //    0: Intro & Mission (sakura), 1: About (katan),
+    //    2: Work (suisen), 3: Role & Contact (sophia)
+    const STAGE_BY_SECTION = { about: 1, work: 2, role: 3, contact: 3 };
     let activeStage = 0;
-    if (scrollRatio >= 0.72) {
-      activeStage = 3;
-    } else if (scrollRatio >= 0.45) {
-      activeStage = 2;
-    } else if (scrollRatio >= 0.22) {
-      activeStage = 1;
-    } else {
-      activeStage = 0;
+    for (let i = sections.length - 1; i >= 0; i--) {
+      if (sections[i].getBoundingClientRect().top <= window.innerHeight * 0.5) {
+        activeStage = STAGE_BY_SECTION[sections[i].id] ?? 0;
+        break;
+      }
     }
 
     // Apply Stage Theme Transition if changed
@@ -83,18 +85,21 @@ export function initScrollEngine() {
       applyStageTheme(activeStage);
     }
 
-    // 3. Dual-Layer Text Reveal in About Section (Olivi style clip-path scrub)
-    const aboutSection = document.getElementById('about');
-    if (aboutSection && dualLayerOverlays.length > 0) {
-      const rect = aboutSection.getBoundingClientRect();
+    // 3. Dual-Layer Text Reveal in About Section
+    //    (Olivi style: each line wipes left->right, cascading line by line downward)
+    //    Each line is tied to its OWN viewport position: it starts wiping as
+    //    soon as it enters at the bottom and finishes once it reaches reading
+    //    position — so the cascade begins early but never ends early.
+    const dualLines = document.querySelectorAll('.dual-layer-line');
+    if (dualLines.length > 0 && dualLayerOverlays.length > 0) {
       const viewH = window.innerHeight;
-      // Start revealing when entering viewport, finish when centered
-      const enterProgress = (viewH - rect.top) / (viewH + rect.height * 0.5);
-      const clamped = Math.min(1, Math.max(0, enterProgress));
-      const rightInset = Math.max(0, (1 - clamped) * 100);
-
-      dualLayerOverlays.forEach(overlay => {
-        overlay.style.clipPath = `inset(0 ${rightInset}% 0 0)`;
+      dualLines.forEach((line, i) => {
+        const overlay = dualLayerOverlays[i];
+        if (!overlay) return;
+        const top = line.getBoundingClientRect().top;
+        // wipe spans from entering at 90% viewport to settling at 62%
+        const local = Math.min(1, Math.max(0, (viewH * 0.9 - top) / (viewH * 0.28)));
+        overlay.style.clipPath = `inset(0 ${(1 - local) * 100}% 0 0)`;
       });
     }
 

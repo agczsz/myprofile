@@ -36,10 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
     trigger.addEventListener('click', (e) => {
       e.preventDefault();
       if (modalTag) modalTag.textContent = 'ABOUT ME / 个人故事与心路历程';
-      if (modalTitle) modalTitle.textContent = '罗大珉 · Damin Luo';
+      if (modalTitle) modalTitle.textContent = 'Damin Luo';
       if (modalBody) {
         modalBody.innerHTML = `
-          <p class="lead">广东医科大学 2024 级临床医学本科在读，立志从事临床全科医学。在深耕基础医学（生物化学、病理生理学、临床诊断）的同时，深度跨界计算生物学与现代软件工程。</p>
+          <p class="lead">某医科大学 2024 级临床医学本科在读，立志从事临床全科医学。在深耕基础医学（生物化学、病理生理学、临床诊断）的同时，深度跨界计算生物学与现代软件工程。</p>
           <h4>为什么同时深耕临床与代码？</h4>
           <p>在微观生物学世界中，蛋白质与核酸的每一次构象异构与突变都遵循严谨的物理与化学定律；而在宏观临床诊疗中，每一个患者的病症又是高度复杂而富有温度的现实。我坚信，未来的医学将深度融合计算驱动与数据智能——通过分子动力学模拟（MD）探索变构抑制机制，通过自研 AI Agent 工作流与系统自动化工程赋能科研效率。</p>
           <h4>核心追求</h4>
