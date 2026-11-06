@@ -2,10 +2,10 @@
  * ScrollEngine - Coordinates 4-image sequential crossfade & section tracking
  *
  * Image Sequence:
- * Stage 1: picture/1-3840x2160px_C_sakura.png (Cyan / Electric Teal) -> Intro & Mission
- * Stage 2: picture/2-3840x2160px_C_katan.png (Crimson / Orange / Gold) -> About
- * Stage 3: picture/3-3840x2160px_C_suisen.png (Cyber Violet / Obsidian) -> Work
- * Stage 4: picture/4-3840x2160px_C_sophia.png (Emerald / Sky Blue / Rose Gold) -> Role & Contact
+ * Stage 1: picture/1-3840x2160px_C_sakura.webp (Cyan / Electric Teal) -> Intro & Mission
+ * Stage 2: picture/2-3840x2160px_C_katan.webp (Crimson / Orange / Gold) -> About
+ * Stage 3: picture/3-3840x2160px_C_suisen.webp (Cyber Violet / Obsidian) -> Work
+ * Stage 4: picture/4-3840x2160px_C_sophia.webp (Emerald / Sky Blue / Rose Gold) -> Role & Contact
  */
 
 const STAGES = [

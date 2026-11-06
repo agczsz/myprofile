@@ -104,7 +104,7 @@ button {
 .stage-layer-1 {
   background-image: linear-gradient(180deg, transparent 55%, rgba(6, 8, 13, 0.6) 100%),
                     radial-gradient(circle at 70% 30%, transparent 40%, rgba(6, 8, 13, 0.45) 92%),
-                    url('/picture/1-3840x2160px_C_sakura.png');
+                    url('/picture/1-3840x2160px_C_sakura.webp');
   /* zoom slightly and anchor left so the Sakura face shifts toward the
      right edge, clear of the hero headline */
   background-size: auto 145%;
@@ -114,13 +114,13 @@ button {
 .stage-layer-2 {
   background-image: linear-gradient(180deg, transparent 55%, rgba(6, 8, 13, 0.6) 100%),
                     radial-gradient(circle at 60% 40%, transparent 40%, rgba(6, 8, 13, 0.45) 92%),
-                    url('/picture/2-3840x2160px_C_katan.png');
+                    url('/picture/2-3840x2160px_C_katan.webp');
 }
 
 .stage-layer-3 {
   background-image: linear-gradient(180deg, transparent 55%, rgba(6, 8, 13, 0.6) 100%),
                     radial-gradient(circle at 50% 35%, transparent 40%, rgba(6, 8, 13, 0.45) 92%),
-                    url('/picture/3-3840x2160px_C_suisen.png');
+                    url('/picture/3-3840x2160px_C_suisen.webp');
 }
 
 .stage-layer-4 {
@@ -128,7 +128,7 @@ button {
      side while the Sophia artwork stays visible on the right */
   background-image: linear-gradient(90deg, rgba(6, 8, 13, 0.92) 0%, rgba(6, 8, 13, 0.55) 42%, rgba(6, 8, 13, 0.08) 72%),
                     linear-gradient(180deg, transparent 45%, rgba(6, 8, 13, 0.7) 100%),
-                    url('/picture/4-3840x2160px_C_sophia.png');
+                    url('/picture/4-3840x2160px_C_sophia.webp');
   background-size: auto 135%;
   background-position: 0% 30%;
 }

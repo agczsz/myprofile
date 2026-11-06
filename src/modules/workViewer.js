@@ -9,7 +9,7 @@ export const PROJECTS_DATA = [
     category: 'AI Agent · Molecular Dynamics · Python',
     year: '2025–2026',
     previewBg: 'radial-gradient(120% 90% at 20% 15%, #00f0ff 0%, #0077ff 45%, #091322 100%)',
-    image: '/picture/1-3840x2160px_C_sakura.png',
+    image: '/picture/1-3840x2160px_C_sakura.webp',
     summary: '基于大语言模型（LLM）的分子动力学模拟全流程自动化平台。',
     details: `
       <h4>项目背景与核心痛点</h4>
@@ -28,7 +28,7 @@ export const PROJECTS_DATA = [
     category: 'Media Pipeline · Notion API · Cloudflare AI',
     year: '2024–2025',
     previewBg: 'radial-gradient(120% 90% at 20% 15%, #ff2a6d 0%, #ff6e27 45%, #1f0710 100%)',
-    image: '/picture/2-3840x2160px_C_katan.png',
+    image: '/picture/2-3840x2160px_C_katan.webp',
     summary: '全流程自建的追番自动化与多端媒体追踪系统，打通动漫元数据与双向进度同步。',
     details: `
       <h4>技术栈与架构</h4>
@@ -47,7 +47,7 @@ export const PROJECTS_DATA = [
     category: 'Computational Biology · R · DataViz',
     year: '2024',
     previewBg: 'radial-gradient(120% 90% at 20% 15%, #b055ff 0%, #7928ca 45%, #10081d 100%)',
-    image: '/picture/3-3840x2160px_C_suisen.png',
+    image: '/picture/3-3840x2160px_C_suisen.webp',
     summary: '针对 PZAse 等重要药物靶点野生型与突变型的多维度动力学数据自动化可视化工具。',
     details: `
       <h4>核心能力</h4>
@@ -64,7 +64,7 @@ export const PROJECTS_DATA = [
     category: 'Academic Paper · JMGM (Under Review) · Amber24',
     year: '2024–2025',
     previewBg: 'radial-gradient(120% 90% at 20% 15%, #ffc837 0%, #ff6e27 45%, #091322 100%)',
-    image: '/picture/2-3840x2160px_C_katan.png',
+    image: '/picture/2-3840x2160px_C_katan.webp',
     summary: '已投稿至 Journal of Molecular Graphics and Modelling。揭示噬菌体防御系统中 GajA 的 ATP 驱动非对称变构机制。',
     details: `
       <h4>论文贡献与研究亮点</h4>
@@ -82,7 +82,7 @@ export const PROJECTS_DATA = [
     category: 'Virtualization · Linux · Proxmox VE · Docker',
     year: '2023–2026',
     previewBg: 'radial-gradient(120% 90% at 20% 15%, #05f1af 0%, #38bdf8 45%, #081a17 100%)',
-    image: '/picture/4-3840x2160px_C_sophia.png',
+    image: '/picture/4-3840x2160px_C_sophia.webp',
     summary: '高可用私有家庭实验室与跨地域轻量云网络，支撑生信计算、开发环境与数字资产。',
     details: `
       <h4>基础设施布局</h4>
@@ -99,7 +99,7 @@ export const PROJECTS_DATA = [
     category: 'Digital Acoustics · DAC · AutoEq / PEQ',
     year: 'Continuous',
     previewBg: 'radial-gradient(120% 90% at 20% 15%, #38bdf8 0%, #b055ff 45%, #10081d 100%)',
-    image: '/picture/3-3840x2160px_C_suisen.png',
+    image: '/picture/3-3840x2160px_C_suisen.webp',
     summary: '精准数字音频调校、Shanling UA2 DAC 系统配合自定义 PEQ 均衡曲线，优化 ACG 人声结像。',
     details: `
       <h4>调音哲学与工程实践</h4>
